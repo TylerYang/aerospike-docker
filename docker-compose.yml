@@ -1,0 +1,15 @@
+aerospike:
+    image: aerospike/aerospike-server
+    ports:
+        - "3000"
+        - "3001"
+        - "3002"
+        - "3003"
+    expose:
+        - "3000"
+        - "3001"
+        - "3002"
+        - "3003"
+    volumes:
+        - aerospike/etc:/opt/aerospike/etc
+    command: asd --foreground --config-file /opt/aerospike/etc/aerospike.conf

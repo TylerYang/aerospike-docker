@@ -1,0 +1,15 @@
+#!/bin/bash
+
+docker run -d \
+    -v `pwd`/aerospike/etc:/opt/aerospike/etc \
+    -v `pwd`/aerospike/data:/opt/aerospike/data \
+    -v `pwd`/aerospike/log:/opt/aerospike/log \
+    --name aerospike \
+    -p 3000:3000 \
+    -p 3001:3001 \
+    -p 3002:3002 \
+    -p 3003:3003 \
+    aerospike/aerospike-server \
+    asd \
+        --foreground \
+        --config-file /opt/aerospike/etc/aerospike.conf
